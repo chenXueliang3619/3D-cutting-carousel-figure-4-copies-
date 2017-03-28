@@ -1,4 +1,4 @@
-  *{
+* {
             margin: 0;
             padding: 0;
         }
@@ -26,7 +26,6 @@
             position: absolute;
         }
 
-        // 在此处更改图片
         li > div:nth-child(1) {
             background: url("img/01.jpg");
             transform: rotateX(0deg) translateZ(190px);
@@ -46,7 +45,6 @@
             background: url("img/04_kiss.jpg");
             transform: rotateX(270deg) translateZ(190px);
         }
-
 
         li:nth-child(2) > div {
             background-position: -140px 0;
@@ -79,12 +77,12 @@
         }
 
         .right {
+        
             top: 50%;
             right: 0;
             transform: translateY(-50%);
         }
 
-        // 在此处更改延迟时间和旋转时间  为防止顺序混乱 不建议修改
         li:nth-child(2) {
             transition: all 1s .2s;
         }
