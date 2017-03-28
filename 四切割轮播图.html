@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 560px;
+            height: 380px;
+            list-style: none;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        li {
+            width: 25%;
+            height: 100%;
+            float: left;
+            position: relative;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+
+        li > div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        li > div:nth-child(1) {
+            background: url("img/01.jpg");
+            transform: rotateX(0deg) translateZ(190px);
+        }
+
+        li > div:nth-child(2) {
+            background: url("img/02.jpg");
+            transform: rotateX(90deg) translateZ(190px);
+        }
+
+        li > div:nth-child(3) {
+            background: url("img/03_kis.jpg");
+            transform: rotateX(180deg) translateZ(190px);
+        }
+
+        li > div:nth-child(4) {
+            background: url("img/04_kiss.jpg");
+            transform: rotateX(270deg) translateZ(190px);
+        }
+
+        li:nth-child(2) > div {
+            background-position: -140px 0;
+        }
+
+        li:nth-child(3) > div {
+            background-position: -280px 0;
+        }
+
+        li:nth-child(4) > div {
+            background-position: -420px 0;
+        }
+
+        a {
+            color: #ffffff;
+            font-size: 40px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .3);
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+        }
+
+        .left {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .right {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        li:nth-child(2) {
+            transition: all 1s .2s;
+        }
+
+        li:nth-child(3) {
+            transition: all 1s .4s;
+        }
+
+        li:nth-child(4) {
+            transition: all 1s .6s;
+        }
+
+    </style>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script>
+        $(function () {
+            var flog = true;
+            var num = 0;
+
+
+            $(".left").click(function () {
+
+                if (flog) {
+                    flog = false;
+                    num++;
+                    $("li").css({transform: "rotateX(" + num * 90 + "deg)"});
+                }
+            });
+            $(".right").click(function () {
+
+                if (flog) {
+                    flog = false;
+                    num--;
+                    $("li").css({transform: "rotateX(" + num * 90 + "deg)"});
+                }
+            });
+            $("li").last().on("transitionend", function () {
+                flog = true;
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </li>
+    <a href="#" class="left"> < </a>
+    <a href="#" class="right"> > </a>
+</ul>
+</body>
+</html>
